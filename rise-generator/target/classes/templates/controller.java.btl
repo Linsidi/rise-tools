@@ -1,0 +1,77 @@
+package ${package.Controller};
+
+import ${package.Entity}.${entity};
+import ${package.ServiceImpl}.${table.serviceImplName};
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.http.ResponseEntity;
+import javax.validation.Valid;
+import io.swagger.annotations.*;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.util.List;
+import ${cfg.baseControllerPackage};
+
+
+
+/**
+ * <p>
+ * ${table.comment!} 前端控制层
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@RestController
+@RequestMapping("${table.entityPath}")
+@Api("${table.entityPath}")
+public class ${table.controllerName} extends ${cfg.baseController} {
+
+        @Resource
+        private ${table.serviceImplName} ${table.entityPath}Service;
+
+        @PostMapping("page")
+        @ApiOperation("分页查询")
+        public ResponseEntity<Page> findPage(@Valid @RequestBody ${entity} ${table.entityPath}){
+             Long pageNum = 1L;
+             Long pageSize = 10L;
+             Page<${entity}> findPage = this.${table.entityPath}Service.page(new Page<>(pageNum,pageSize));
+             return ResultUtil.success(findPage);
+        }
+
+
+        @PostMapping("list")
+        @ApiOperation("查询全部")
+        public ResponseEntity<List<${entity}>> findList() {
+             List<${entity}> findList = this.${table.entityPath}Service.list();
+             return ResultUtil.success(findList);
+        }
+
+
+         @PostMapping("insert")
+         @ApiOperation("新增")
+         public ResponseEntity save(@Valid @RequestBody ${entity} ${table.entityPath}) {
+              this.${table.entityPath}Service.save(${table.entityPath});
+              return ResultUtil.success();
+         }
+
+
+         @PostMapping("update")
+         @ApiOperation("修改")
+         public ResponseEntity update(@Valid @RequestBody ${entity} ${table.entityPath}) {
+              this.${table.entityPath}Service.updateById(${table.entityPath});
+              return ResultUtil.success();
+         }
+
+         @PostMapping("delete")
+         @ApiOperation("删除")
+         public ResponseEntity delete(@Valid @RequestBody ${entity} ${table.entityPath}) {
+              this.${table.entityPath}Service.removeById(${table.entityPath}.getId());
+              return ResultUtil.success();
+         }
+
+
+
+
+
+
+}

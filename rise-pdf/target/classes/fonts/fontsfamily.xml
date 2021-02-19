@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+	<fontFamily name="msyh">
+		<normal><![CDATA[fonts/msyh.ttf]]></normal>
+		<bold><![CDATA[fonts/msyhbd.ttf]]></bold>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+	<fontFamily name="Arial">
+		<normal><![CDATA[fonts/arial.ttf]]></normal>
+		<bold><![CDATA[fonts/arialbd.ttf]]></bold>
+		<pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+		<exportFonts/>
+	</fontFamily>
+</fontFamilies>
